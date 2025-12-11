@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>YOUR SON – Home with Splash</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Nunito+Sans+Expanded:wght@400;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      height: 100%;
+    }
+
+    body {
+      font-family: "Nunito Sans Expanded", sans-serif;
+      background-color: #000;
+      overflow: hidden; /* Prevent scroll jump during splash */
+    }
+
+    /* ---------------- SPLASH OVERLAY ---------------- */
+
+    #splash {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background:
+        #000
+        url("https://raw.githubusercontent.com/MRASServices/YourSonOfficialSite2/refs/heads/main/Brick%20BG%20Image%20-%20Splash%20Page.webp")
+        no-repeat center center / cover;
+      opacity: 1;
+      visibility: visible;
+      transition: opacity 1.5s ease, visibility 1.5s ease;
+    }
+
+    #splash-logo {
+      max-width: 80vw;
+      max-height: 80vh;
+      box-shadow: 0px 0px 25px 12px #000000;
+      animation: logoZoomIn 2.5s ease-out forwards;
+    }
+
+    @keyframes logoZoomIn {
+      0% {
+        transform: scale(0.2);
+        opacity: 0.5;
+      }
+      100% {
+        transform: scale(0.6);
+        opacity: 1;
+      }
+    }
+
+    /* Mobile-only splash fade for background */
+    @keyframes mobileSplashFade {
+      0% {
+        opacity: 0.0;        /* start at 0.0 */
+        transform: scale(1); /* size 1.0 */
+      }
+      100% {
+        opacity: 1;          /* end at 1.0 */
+        transform: scale(1);
+      }
+    }
+
+    /* ---------------- HOME CONTENT ---------------- */
+
+    #home {
+      min-height: 100vh;
+      opacity: 0;
+      visibility: hidden;
+      display: none; /* fully hidden until splash is finished */
+      transition: opacity 0.6s ease, visibility 0.6s ease;
+      color: #fbefdd;
+      background-color: #000;
+      background-image: url("https://raw.githubusercontent.com/MRASServices/YourSonOfficialSite2/refs/heads/main/Main%20Page.webp");
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+    }
+
+    body.loaded #splash {
+      /* turn OFF animation so fade-out can win */
+      animation: none;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    body.loaded #home {
+      display: block;  /* appears only after splash is done */
+      opacity: 1;
+      visibility: visible;
+    }
+
+    /* --------- NAV PANEL ON RIGHT --------- */
+
+    .page-wrapper {
+      min-height: 100vh;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      padding: 2rem 4rem;
+    }
+
+    .nav-panel {
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      max-width: 420px;
+      width: 100%;
+      margin-top: 4rem;
+    }
+
+    .nav-list {
+      list-style: none;
+      width: 100%;
+    }
+
+    .nav-item {
+      margin: 0.35rem 0;
+    }
+
+    .nav-link {
+      display: block;
+      text-decoration: none;
+      color: #fbefdd;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      font-size: 1.1rem;
+      padding: 1rem 0;
+      text-align: center;
+    }
+
+    .nav-link:hover {
+      opacity: 0.6;
+      font-size: 1.16rem;
+      color: #efbf04;
+    }
+
+    .nav-separator {
+      border: none;
+      border-top: 2px solid rgba(251, 239, 221, 0.6);
+      margin: 1.1rem 0;
+    }
+
+    .nav-logo {
+      margin-top: 5rem;
+      display: flex;
+      justify-content: center;
+    }
+
+    .nav-logo img {
+      width: 80px;
+      height: auto;
+      display: block;
+    }
+
+    /* --------- MOBILE ADAPTIVE BACKGROUNDS --------- */
+    @media (max-width: 768px) {
+        
+      /* Use mobile splash background and fade it in 0.2 → 1.0 */
+      #splash { 
+        transition: opacity 1.5s ease, visibility 1.5s ease;
+        background:
+          #000
+          url("https://raw.githubusercontent.com/MRASServices/YourSonOfficialSite2/refs/heads/main/Mobile%20Splash%20Page.webp")
+          no-repeat center center / cover;
+        opacity: 0.0; /* start at 0.0 */
+        animation: mobileSplashFade 2.5s ease-out forwards;
+      }
+
+      /* Hide splash logo on mobile */
+      #splash-logo {
+        display: none;
+      }
+
+      /* Use mobile home background */
+      #home {
+        background-image: url("https://raw.githubusercontent.com/MRASServices/YourSonOfficialSite2/refs/heads/main/Mobile%20Home%20Page%20-%20nb.webp");
+        background-position: center top;
+        background-attachment: scroll; /* avoids jank on mobile */
+      }
+
+      .page-wrapper {
+        justify-content: center;
+        padding: 2rem;
+        background-position: center top;
+      }
+
+      .nav-panel {
+        align-items: center;
+        margin-top: 4.25rem;
+      }
+
+      .nav-link {
+        text-align: center;
+      }
+
+      /* Mobile-specific nav styles override */
+      .nav-link {
+        display: block;
+        text-decoration: none;
+        color: #fbefdd;
+        text-transform: uppercase;
+        letter-spacing: 0.2em;
+        font-size: 1.25rem;
+        font-weight: 400;
+        padding: 1.2rem 0;
+        text-align: center;
+      }
+
+      .nav-link:active {
+        opacity: 0.6;
+        font-size: 1.16rem;
+        color: #efbf04;
+      }
+
+      .nav-logo {
+        margin-top: 5rem;
+        display: flex;
+        justify-content: center;
+      }
+
+      .nav-logo img {
+        width: 120px;
+        height: auto;
+        display: block;
+      }
+      
+      
+    }
+  </style>
+</head>
+<body>
+  <!-- SPLASH PAGE -->
+  <div id="splash">
+    <img
+      id="splash-logo"
+      src="https://raw.githubusercontent.com/MRASServices/YourSonOfficialSite2/refs/heads/main/Company%20Profile.webp"
+      alt="Your Son Company Profile"
+    />
+  </div>
+
+  <!-- HOME PAGE CONTENT -->
+  <div id="home">
+    <div class="page-wrapper">
+      <nav class="nav-panel">
+        <ul class="nav-list">
+          <li class="nav-item">
+            <hr class="nav-separator" />
+            <a href="https://yourson.ca/about" class="nav-link">ABOUT YOUR SON</a>
+          </li>
+
+          <li class="nav-item">
+            <hr class="nav-separator" />
+            <a href="https://yourson.ca/services" class="nav-link">YOUR SON’S SERVICES</a>
+          </li>
+
+          <li class="nav-item">
+            <hr class="nav-separator" />
+            <a href="https://yourson.ca/contact&amp;availability" class="nav-link">
+              CONTACT &amp; AVAILABILITY
+            </a>
+          </li>
+
+          <li class="nav-item">
+            <hr class="nav-separator" />
+            <a href="https://yourson.ca/garments&amp;goods" class="nav-link">
+              GARMENTS &amp; GOODS
+            </a>
+            <hr class="nav-separator" />
+          </li>
+        </ul>
+
+        <div class="nav-logo">
+          <img
+            src="https://raw.githubusercontent.com/MRASServices/YourSonOfficialSite2/refs/heads/main/YSON%20Logo%20Small.webp"
+            alt="Your Son Logo"
+          />
+        </div>
+      </nav>
+    </div>
+  </div>
+
+  <script>
+    // Wait until the page fully loads
+    window.addEventListener("load", function () {
+      // Match same breakpoint as CSS
+      const isMobile = window.matchMedia("(max-width: 768px)").matches;
+
+      // Different durations
+      const mobileSplashDuration = 2400;  // 2.5s on mobile
+      const desktopSplashDuration = 4000; // 4s on desktop
+
+      const splashDuration = isMobile ? mobileSplashDuration : desktopSplashDuration;
+
+      setTimeout(function () {
+        document.body.classList.add("loaded");
+        document.body.style.overflow = "auto";
+      }, splashDuration);
+    });
+  </script>
+</body>
+</html>
