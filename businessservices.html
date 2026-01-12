@@ -1,0 +1,973 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>YOUR SON: Business Services</title>
+
+  <!-- Nunito Sans Expanded -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans+Expanded:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Signature font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg-img: url("https://raw.githubusercontent.com/MRASServices/YourSonOfficialSite2/refs/heads/main/About%20Page%20Background.webp");
+      --nav-logo: url("https://raw.githubusercontent.com/MRASServices/YourSonOfficialSite2/refs/heads/main/Header%20logo%20black.webp");
+      --accent-box: #000000;
+      --header-bg: #000000;
+      --ink: rgba(355,355,355,0.9);
+      --muted: rgba(30,30,30,0.62);
+      --line: rgba(355,355,355,0.9);
+      --shell: rgba(255,247,230,0.0);
+      --font: "Nunito Sans Expanded", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      --brand-gold: #efbf04;
+    }
+
+    *{ box-sizing:border-box; margin:0; padding:0; }
+    html, body{ height:100%; }
+
+    body{
+      font-family: var(--font);
+      color: var(--ink);
+      background: #0b0b0b var(--bg-img) no-repeat center/cover fixed;
+    }
+
+    .page-shell{
+      width: 100%;
+      margin: 0;
+      background: var(--shell);
+      box-shadow: 0 18px 60px rgba(0,0,0,.28);
+    }
+
+    header{
+      padding: 28px 28px 15px;
+      border-bottom: 2px solid rgba(30,30,30,.80);
+      text-align:center;
+      background: var(--header-bg);
+      box-shadow: 10px 19px 29px -27px rgba(355,355,355,0);
+      margin-bottom:3em;
+      backdrop-filter: blur(6px);
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+    .brand-logo{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      width: min(560px, 88vw);
+      height: clamp(58px, 8.5vw, 92px);
+    }
+    .brand-logo img{
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display:block;
+    }
+
+    .sep-line{
+      width: 95%;
+      height: 1px;
+      margin: 18px auto 15px;
+      background: rgba(355,355,355,1);
+    }
+
+    .nav-row{
+      margin-top: 0;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap: 5px;
+      flex-wrap: wrap;
+      position: relative;
+    }
+
+    nav{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap: clamp(60px, 12.25vw, 155px);
+      flex-wrap: wrap;
+      padding-inline: 0;
+    }
+
+    nav a{
+      font-family: var(--font);
+      text-decoration:none;
+      color: rgba(355,355,355,1);
+      font-size: 15px;
+      letter-spacing: .40em;
+      word-spacing: 0.55em;
+      text-transform: uppercase;
+      transition: opacity .2s ease, transform .2s ease;
+      font-weight: 500;
+      transform: scaleY(0.75);
+    }
+    nav a:hover{
+      opacity: 1.0;
+      color: var(--brand-gold);
+    }
+
+    .content{ padding: 1px; }
+
+    .two-col{
+      display: flex;
+      flex-direction: column-reverse;
+      gap: 0px;
+      align-items: center;
+      justify-content: center;
+      min-height: 560px;
+    }
+
+    .bio-box{
+      background: var(--accent-box);
+      border: 2px solid rgba(30,30,30,.80);
+      padding: clamp(12px, 0.5vw, 50px);
+      padding-bottom: 4em;
+      margin-top:3em;
+      box-shadow: 0px 5px 5px -4px rgba(355,355,355,0);
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      min-height: 100%;
+      align-items: center;
+      width: 92%;
+      margin-bottom: 6em;
+    }
+
+    .bio-top h1{
+      font-family: var(--font);
+      font-weight: 100;
+      font-size: clamp(40px, 4.25vw, 70px);
+      letter-spacing: .25em;
+      word-spacing: 1rem;
+      margin-bottom: 18px;
+      margin-top: 5px;
+      text-align: center;
+      transform: scaleY(0.75);
+    }
+
+    .bio-top .subtitle{
+      font-family: var(--font);
+      font-weight: 200;
+      font-size: 18px;
+      color: rgba(355,355,355,1);
+      letter-spacing: .09em;
+      text-align: center;
+      transform: scaleY(0.75);
+    }
+
+    .sep-line.bio{
+      margin: 10px auto 35px;
+      width: 100%;
+    }
+
+    .bio-top p{
+      font-family: var(--font);
+      font-size: 17px;
+      text-align: justify;
+      line-height: 1.7;
+      letter-spacing:0.15ch;
+      color: rgba(355,355,355,1);
+      margin: 26px auto 25px;
+      margin-bottom:2em;
+      max-width: 79ch;
+      font-weight: 200;
+    }
+
+    /* ✅ Inline “reach out” button */
+    .inline-contact-btn{
+      appearance:none;
+      border:0;
+      background: transparent;
+      color: var(--brand-gold);
+      font: inherit;
+      cursor: pointer;
+      padding: 0;
+      text-decoration: ;
+      text-underline-offset: 3px;
+      font-weight: 600;
+    }
+    .inline-contact-btn:hover{ opacity:.85; }
+    .inline-contact-btn:focus-visible{
+      outline: 3px solid rgba(239,191,4,.55);
+      outline-offset: 3px;
+      border-radius: 4px;
+    }
+
+    /* ✅ Search box */
+    .service-search-wrap{
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      margin-top: 12px;
+      margin-bottom: 50px;
+    }
+    .service-search{
+      width: min(500px, 100%);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 6px 6px;
+      border: 2px solid rgba(30,30,30,.55);
+      background: rgba(335,335,335,1);
+      backdrop-filter: blur(6px);
+      box-shadow: 0 12px 24px rgba(335,335,335,0);
+      border-radius: 5px;
+    }
+    .service-search input{
+      flex: 1;
+      border: 0;
+      outline: none;
+      background: transparent;
+      font-family: var(--font);
+      font-size: 14px;
+      letter-spacing: .06em;
+      color: rgba(0,0,0,1);
+      padding: 8px 10px;
+    }
+    .service-search button{
+      border: 2px solid rgba(0,0,0,1);
+      background: rgba(335,335,335,1);
+      font-family: var(--font);
+      font-size: 13px;
+      letter-spacing: .12em;
+      font-weight: bold;
+      padding: 3px 5px;
+      cursor: pointer;
+      border-radius: 1px;
+      transition: transform .15s ease, opacity .15s ease;
+    }
+    .service-search button:hover{
+      color: rgba(335,335,335,1);
+      background-color: rgba(35,35,35,1);
+    }
+    .search-status{
+      width: 100%;
+      text-align: center;
+      font-family: var(--font);
+      font-size: 13px;
+      letter-spacing: .08em;
+      color: rgba(335,335,335,.78);
+      margin-bottom: 25px;
+    }
+
+    /* ✅ FLEX WRAP ROWS OF MINI BOXES */
+    .mini-box-grid{
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      gap: clamp(40px, 2.2vw, 80px);
+      margin-top: 2.2em;
+      align-items: stretch;
+    }
+
+    details.mini-box{
+      flex: 1 1 calc(50% - clamp(40px, 2.2vw, 80px));
+      background: var(--accent-box);
+      border: 2px solid rgba(30,30,30,.80);
+      box-shadow: 0px 10px 13px -7px #000000, 0px 0px 12px 8px rgba(335,335,335,0);
+      min-width: 220px;
+      margin-bottom: 0em;
+      padding: 0;
+      border-radius: 0px;
+    }
+
+    details.mini-box.match{
+      border-color: var(--brand-gold);
+      box-shadow: 0px 10px 13px -7px #000000,
+                  0px 0px 12px 8px rgba(0,0,0,0.72),
+                  0 0 0 4px rgba(239,191,4,.28);
+    }
+    details.mini-box.match .mini-summary{
+      background: rgba(239,191,4,0.1);
+    }
+
+    details.mini-box > summary{ list-style: none; }
+    details.mini-box > summary::-webkit-details-marker{ display:none; }
+
+    .mini-summary{
+      cursor: pointer;
+      user-select: none;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      min-height: 130px;
+      padding: clamp(10px, 1.1vw, 16px);
+      position: relative;
+    }
+
+    .mini-summary::after{
+      content: "▾";
+      position: absolute;
+      right: 14px;
+      color: rgba(355,355,355,1);
+      top: 12px;
+      font-size: 18px;
+      opacity: 1;
+      transition: transform .25s ease;
+    }
+    details.mini-box[open] .mini-summary::after{ transform: rotate(180deg); }
+
+    .mini-content{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+    }
+
+    details.mini-box h3{
+      font-family: var(--font);
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.5;
+      letter-spacing: .20em;
+      text-transform: uppercase;
+      transform: scaleY(0.85);
+      margin: 0;
+      color: rgba(335,335,335,1);
+      text-align: center;
+    }
+
+    details.mini-box p{
+      font-family: var(--font);
+      font-size: 12px;
+      line-height: 0;
+      letter-spacing: 0.08ch;
+      color: rgba(335,335,335,1);
+      margin-top: 0em;
+      text-align: center;
+    }
+
+    .mini-panel{
+      overflow: hidden;
+      max-height: 0;
+      opacity: 0;
+      padding: 0 clamp(10px, 1.1vw, 16px);
+      transition: max-height .35s ease, opacity .25s ease;
+    }
+    details.mini-box[open] .mini-panel{
+      max-height: 520px;
+      opacity: 1;
+      padding: 0 clamp(10px, 1.1vw, 16px) 16px;
+      margin-top:-2em;
+      border-top: 0.5px solid rgba(355,355,355,1);
+    }
+
+    .mini-panel ul{
+      margin-top: 1em;
+      padding: 0;
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      text-align: left;
+    }
+    .mini-panel li{
+      font-family: var(--font);
+      font-size: 12px;
+      letter-spacing: 0.2ch;
+      color: rgba(335,335,335,1);
+      margin-top:0em;
+    }
+
+    details.mini-box[open] .mini-summary{
+      border-bottom: 1px solid rgba(0,0,0,1);
+      margin-bottom: 15px;
+    }
+
+    /* ✅ Partner overlay */
+    .partner-overlay{
+      width: 92%;
+      margin: 0 auto 2.2em;
+      background: rgba(0,0,0,0.78);
+      border: 2px solid rgba(30,30,30,.80);
+      box-shadow: 0px 10px 13px -7px #000000, 0px 0px 12px 8px rgba(0,0,0,0.28);
+      padding: clamp(14px, 2vw, 22px);
+      backdrop-filter: blur(6px);
+    }
+
+    .partner-title{
+      font-family: var(--font);
+      font-weight: 375;
+      font-size: 16px;
+      letter-spacing: .3em;
+      text-transform: uppercase;
+      color: rgba(355,355,355,1);
+      text-align: center;
+      transform: scaleY(0.85);
+      margin-bottom: 25px;
+    }
+
+    .partner-row{
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: clamp(10px, 1.6vw, 18px);
+      align-items: center;
+    }
+
+    .partner-row a{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2px;
+      border: 1px solid rgba(355,355,355,1);
+      background: rgba(0,0,0,1);
+      text-decoration: none;
+      transition: transform .15s ease, border-color .15s ease;
+      min-height: 74px;
+    }
+
+    .partner-row a:hover{
+      transform: translateY(-2px);
+      border-color: rgba(239,191,4,0.55);
+    }
+
+    .partner-row img{
+      max-width: 100%;
+      max-height: 100px;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+      filter: drop-shadow(0 8px 12px rgba(0,0,0,.45));
+    }
+
+    .bottom-logo{
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 12px 12px 12px;
+    }
+    .bottom-logo img{
+      margin-top:4em;
+      width: 8%;
+      height: auto;
+      display: block;
+      filter: drop-shadow(0 10px 18px rgba(0,0,0,.65));
+    }
+
+    /* ✅ ONE popup: Call + Email + Text (Option B) */
+    .contact-modal{
+      position: fixed;
+      inset: 0;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 18px;
+      z-index: 9999;
+    }
+    .contact-modal.open{ display:flex; }
+
+    .contact-backdrop{
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,.68);
+      backdrop-filter: blur(4px);
+    }
+
+    .contact-dialog{
+      position: relative;
+      width: min(640px, 92vw);
+      background: rgba(0,0,0,1);
+      border: 2px solid rgba(355,355,355,1);
+      padding: 22px 20px 18px;
+      z-index: 1;
+      color: rgba(355,355,355,1);
+    }
+
+    .contact-dialog h2{
+      font-family: var(--font);
+      font-size: 16px;
+      letter-spacing: .26em;
+      text-transform: uppercase;
+      transform: scaleY(0.85);
+      margin-bottom: 20px;
+      text-align: center;
+      font-weight: 500;
+    }
+
+    .contact-actions{
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 12px;
+      margin-top: 10px;
+    }
+
+    .contact-action{
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      background: rgba(0,0,0,1);
+      color: rgba(355,355,355,1);
+      border: 2px solid rgba(355,355,355,1);
+      padding: 12px 12px;
+      font-family: var(--font);
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform .15s ease, border-color .15s ease, color .15s ease;
+    }
+    .contact-action:hover{
+      transform: translateY(-1px);
+      color: var(--brand-gold);
+    }
+
+    .contact-close{
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      border: 0;
+      background: transparent;
+      font-size: 22px;
+      line-height: 1;
+      cursor: pointer;
+      padding: 6px;
+      color: rgba(355,355,355,0.75);
+    }
+    .contact-close:hover{ color: rgba(355,355,355,1); }
+
+    /* Option B “Text from desktop” form (inside popup) */
+    .text-form-wrap{
+      display: none;
+      margin-top: 14px;
+      border-top: 1px solid rgba(355,355,355,0.25);
+      padding-top: 14px;
+    }
+    .text-form-wrap.open{ display:block; }
+
+    .text-form{
+      display: grid;
+      gap: 10px;
+    }
+    .text-form input,
+    .text-form textarea{
+      width: 100%;
+      border: 2px solid rgba(355,355,355,0.55);
+      background: rgba(0,0,0,0.45);
+      color: rgba(355,355,355,0.95);
+      font-family: var(--font);
+      font-size: 14px;
+      padding: 10px 10px;
+      outline: none;
+    }
+    .text-form textarea{
+      min-height: 120px;
+      resize: vertical;
+    }
+    .text-form .form-row{
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    .text-send{
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid rgba(355,355,355,0.65);
+      background: rgba(0,0,0,1);
+      color: rgba(355,355,355,0.95);
+      padding: 12px 12px;
+      font-family: var(--font);
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      font-size: 12px;
+      font-weight: 800;
+      cursor: pointer;
+      transition: transform .15s ease, border-color .15s ease, color .15s ease;
+    }
+    .text-send:hover{
+      transform: translateY(-1px);
+      border-color: rgba(239,191,4,0.95);
+      color: var(--brand-gold);
+    }
+
+    .contact-meta{
+      margin-top: 16px;
+      text-align: center;
+      font-size: 12px;
+      letter-spacing: .08em;
+      color: rgba(355,355,355,0.72);
+    }
+
+    @media (max-width: 980px){
+      .nav-row{ justify-content:center; gap: 10px; }
+      .two-col{ min-height: auto; }
+      .sep-line{ width: 92%; }
+      nav{ gap: clamp(18px, 6vw, 44px); }
+
+      details.mini-box{ flex: 1 1 calc(50% - clamp(10px, 1.4vw, 18px)); min-width: 0; }
+      .service-search{ width: min(560px, 100%); }
+      .partner-row{ grid-template-columns: repeat(3, 1fr); }
+      .bottom-logo img{ width: min(240px, 72vw); }
+
+      .contact-actions{ grid-template-columns: 1fr; }
+      .text-form .form-row{ grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 520px){
+      .page-shell{ width: 100%; margin-inline: auto; }
+      header{ padding: 22px 16px 12px; }
+      .content{ padding: 16px; }
+      nav{ gap: 14px; }
+      .sep-line{ margin: 14px auto 12px; }
+      .sep-line.bio{ margin: 6px auto 16px; }
+      .brand-logo{ height: 64px; }
+
+      details.mini-box{ flex: 1 1 100%; }
+      .service-search{ width: 100%; gap: 10px; }
+      .service-search button{ letter-spacing: .06em; padding: 8px 10px; }
+
+      .partner-overlay{ width: 92%; margin-bottom: 1.6em; }
+      .partner-row{ grid-template-columns: repeat(2, 1fr); }
+
+      .bottom-logo{ padding: 18px 12px 32px; }
+      .bottom-logo img{ width: min(220px, 78vw); }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page-shell">
+    <header>
+      <div class="brand">
+        <a class="brand-logo" href="#" aria-label="Your Son Home">
+          <img
+            src="https://raw.githubusercontent.com/MRASServices/YourSonOfficialSite2/refs/heads/main/Header%20logo%20black.webp"
+            alt="Your Son"
+          />
+        </a>
+      </div>
+
+      <div class="sep-line" aria-hidden="true"></div>
+
+      <div class="nav-row">
+        <nav aria-label="Primary">
+          <a href="https://yourson.ca/about">ABOUT</a>
+          <a href="https://yourson.ca/services">SERVICES</a>
+          <a href="https://yourson.ca/workshop">WORKSHOP</a>
+          <a href="https://yourson.ca/contact">CONTACT</a>
+          <a href="https://yourson.ca/home">HOME</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="content">
+      <section class="two-col">
+        <div class="bio-box">
+          <div class="bio-top">
+            <h1>BUSINESS SERVICES</h1>
+            <div class="subtitle">     </div>
+
+            <div class="sep-line bio" aria-hidden="true"></div>
+
+            <p class="about-paragraph">
+              Please note that we are constantly amending our service offerings for the businesses and professionals that we work with. Should your specific need not be listed below, we encourage you to
+              <button type="button" class="inline-contact-btn" id="openReachOut">reach out</button>;
+              as it may still land within our scope of service. At the very least, we can connect you with someone we trust.
+            </p>
+
+            <!-- ✅ Centered search box -->
+            <div class="service-search-wrap" aria-label="Search services">
+              <div class="service-search">
+                <input id="serviceSearch" type="text" placeholder='Search services (e.g., "Bookkeeping")' autocomplete="off" />
+                <button id="clearSearch" type="button">Clear</button>
+              </div>
+            </div>
+            <div id="searchStatus" class="search-status" aria-live="polite"></div>
+
+            <div class="mini-box-grid" aria-label="Services categories">
+              <details class="mini-box">
+                <summary class="mini-summary">
+                  <div class="mini-content">
+                    <h3>ADMINISTRATIVE</h3>
+                    <p>Tap to view services</p>
+                  </div>
+                </summary>
+                <div class="mini-panel">
+                  <ul>
+                    <li>BOOKKEEPING</li>
+                    <li>CRM MAINTENANCE</li>
+                    <li>DATA ENTRY</li>
+                    <li>FILING &amp; FILE ORGANIZATION</li>
+                    <li>OFFICE &amp; INVENTORY MANAGEMENT</li>
+                  </ul>
+                </div>
+              </details>
+
+              <details class="mini-box">
+                <summary class="mini-summary">
+                  <div class="mini-content">
+                    <h3>CREATIVE</h3>
+                  </div>
+                </summary>
+                <div class="mini-panel">
+                  <ul>
+                    <li>GRAPHIC DESIGN</li>
+                    <li>BRANDING</li>
+                    <li>COPYWRITING</li>
+                    <li>WEB DESIGN</li>
+                    <li>CONTENT WRITING</li>
+                  </ul>
+                </div>
+              </details>
+
+              <details class="mini-box">
+                <summary class="mini-summary">
+                  <div class="mini-content">
+                    <h3>MAINTENANCE</h3>
+                  </div>
+                </summary>
+                <div class="mini-panel">
+                  <ul>
+                    <li>PROPERTY MANAGEMENT</li>
+                    <li>REAL ESTATE SPECIFIC LISTING-MAINTENANCE</li>
+                    <li>OFFICE CLEANING</li>
+                    <li>OFFICE FURNITURE REPAIRS</li>
+                    <li>WINTER LOT MAINTENANCE</li>
+                    <li>WAREHOUSE CLEANING</li>
+                  </ul>
+                </div>
+              </details>
+
+              <details class="mini-box">
+                <summary class="mini-summary">
+                  <div class="mini-content">
+                    <h3>TRANSPORTATION</h3>
+                  </div>
+                </summary>
+                <div class="mini-panel">
+                  <ul>
+                    <li>FINAL MILE DELIVERY (GTA)</li>
+                    <li>TIME-SENSITIVE DELIVERIES (GTA)</li>
+                    <li>CORPORATE TRAVEL</li>
+                    <li>EXECUTIVE TRAVEL</li>
+                    <li>EMPLOYEE COMMUTING</li>
+                  </ul>
+                </div>
+              </details>
+            </div><!-- ✅ end mini-box-grid -->
+          </div>
+        </div>
+      </section>
+
+      <section class="partner-overlay" aria-label="Partner companies">
+        <div class="partner-title">Some Of Our Past Opportunities</div>
+
+        <div class="partner-row">
+          <a href="https://www.fortigofreight.com/en" target="_blank" rel="noopener" aria-label="Fortigo Homepage (opens in a new tab)">
+            <img src="https://raw.githubusercontent.com/MRASServices/YourSonOfficialSite2/refs/heads/main/Fortigo%20Logo.webp" alt="Fortigo">
+          </a>
+
+          <a href="https://devxchange.org/" target="_blank" rel="noopener" aria-label="Devxchange Homepage (opens in a new tab)">
+            <img src="https://raw.githubusercontent.com/MRASServices/YourSonOfficialSite2/refs/heads/main/Devxchange%20logo.webp" alt="Devxchange">
+          </a>
+
+          <a href="https://everydaybicycles.ca/" target="_blank" rel="noopener" aria-label="Everyday Electric Homepage (opens in a new tab)">
+            <img src="https://raw.githubusercontent.com/MRASServices/YourSonOfficialSite2/refs/heads/main/EverydayElectric%20Logo.webp" alt="Everyday Electric">
+          </a>
+
+          <a href="https://www.introductioncapital.com/" target="_blank" rel="noopener" aria-label="Introduction Capital Homepage (opens in a new tab)">
+            <img src="https://raw.githubusercontent.com/MRASServices/YourSonOfficialSite2/refs/heads/main/IntroCap%20Logo.webp" alt="Introduction Capital">
+          </a>
+
+          <a href="https://www.thriverealty.ca/" target="_blank" rel="noopener" aria-label="Thrive Realty Homepage (opens in a new tab)">
+            <img src="https://raw.githubusercontent.com/MRASServices/YourSonOfficialSite2/refs/heads/main/Thrive%20Realty%20Logo.webp" alt="Thrive Realty">
+          </a>
+        </div>
+      </section>
+
+      <div class="bottom-logo" aria-label="Your Son logo">
+        <img
+          src="https://raw.githubusercontent.com/MRASServices/YourSonOfficialSite2/refs/heads/main/YSON%20Logo%20Small.webp"
+          alt="Your Son logo"
+        />
+      </div>
+    </main>
+  </div>
+
+  <!-- ✅ ONE POPUP (Call + Email + Text) triggered by “reach out” -->
+  <div class="contact-modal" id="reachOutModal" aria-hidden="true">
+    <div class="contact-backdrop" data-close="true"></div>
+
+    <div class="contact-dialog" role="dialog" aria-modal="true" aria-labelledby="reachOutTitle">
+      <button class="contact-close" type="button" aria-label="Close" data-close="true">×</button>
+      <h2 id="reachOutTitle">Contact</h2>
+
+      <div class="contact-actions">
+        <!-- CALL -->
+        <a class="contact-action" id="reachCall" href="tel:+12892318387">Call</a>
+
+        <!-- EMAIL -->
+        <a class="contact-action" id="reachEmail" href="mailto:connectwith@yourson.ca">Email</a>
+
+        <!-- TEXT (Option B toggle) -->
+        <button class="contact-action" id="toggleTextForm" type="button">Text</button>
+      </div>
+
+      <!-- Option B: Website form -> FormSubmit -> email-to-SMS gateway (works on desktop) -->
+      <div class="text-form-wrap" id="textFormWrap" aria-label="Send a text from this website">
+        <form
+          class="text-form"
+          method="POST"
+          target="_blank"
+          action="https://formsubmit.co/2892318387@msg.koodomobile.com"
+        >
+          <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+          <input type="hidden" name="_subject" value="New business inquiry text from YourSon.ca">
+          <input type="hidden" name="_template" value="box">
+          <input type="hidden" name="_captcha" value="true">
+
+          <div class="form-row">
+            <input name="name" type="text" placeholder="Your name" />
+            <input name="reply_to" type="email" placeholder="Your email/phone" />
+          </div>
+
+          <textarea name="message" placeholder="Type your message..." required></textarea>
+
+          <button class="text-send" type="submit">Send Text</button>
+        </form>
+
+        <div class="contact-meta"></div>
+      </div>
+
+      <div class="contact-meta">Please select your preferred option.</div>
+    </div>
+  </div>
+
+  <script>
+    // ✅ Close any other open box when opening a new one (click behavior)
+    document.addEventListener("click", (e) => {
+      const summary = e.target.closest(".mini-summary");
+      if (!summary) return;
+
+      const current = summary.closest("details.mini-box");
+      document.querySelectorAll("details.mini-box[open]").forEach((box) => {
+        if (box !== current) box.removeAttribute("open");
+      });
+    });
+
+    // ✅ Search -> highlight matching category + open/scroll to first match
+    (function(){
+      const input = document.getElementById("serviceSearch");
+      const clearBtn = document.getElementById("clearSearch");
+      const status = document.getElementById("searchStatus");
+      const boxes = Array.from(document.querySelectorAll("details.mini-box"));
+
+      const norm = (s) =>
+        (s || "")
+          .toLowerCase()
+          .replace(/&/g, "and")
+          .replace(/[^a-z0-9\s\/-]/g, "")
+          .replace(/\s+/g, " ")
+          .trim();
+
+      boxes.forEach((box) => {
+        const title = box.querySelector(".mini-summary h3")?.textContent || "";
+        const items = Array.from(box.querySelectorAll(".mini-panel li"))
+          .map(li => li.textContent || "")
+          .join(" ");
+        box.dataset.search = norm(title + " " + items);
+      });
+
+      function clearMatches(){
+        boxes.forEach(b => b.classList.remove("match"));
+        status.textContent = "";
+      }
+
+      function runSearch(){
+        const raw = input.value;
+        const q = norm(raw);
+        clearMatches();
+        if (!q) return;
+
+        const tokens = q.split(" ").filter(Boolean);
+        const matches = boxes.filter(b => {
+          const hay = b.dataset.search || "";
+          return tokens.every(t => hay.includes(t));
+        });
+
+        if (matches.length === 0){
+          status.textContent = `No matches for “${raw}”.`;
+          return;
+        }
+
+        status.textContent = `${matches.length} match${matches.length === 1 ? "" : "es"} for “${raw}”.`;
+        matches.forEach(b => b.classList.add("match"));
+
+        const first = matches[0];
+        boxes.forEach(b => { if (b !== first) b.removeAttribute("open"); });
+        first.setAttribute("open", "");
+        first.scrollIntoView({ behavior: "smooth", block: "center" });
+      }
+
+      input.addEventListener("input", runSearch);
+      clearBtn.addEventListener("click", () => { input.value = ""; clearMatches(); });
+
+      input.addEventListener("keydown", (e) => {
+        if (e.key === "Escape"){
+          input.value = "";
+          clearMatches();
+          input.blur();
+        }
+      });
+    })();
+
+    // ✅ Reach Out modal open/close + text form toggle
+    (function(){
+      const openBtn = document.getElementById("openReachOut");
+      const modal = document.getElementById("reachOutModal");
+      const toggleText = document.getElementById("toggleTextForm");
+      const textWrap = document.getElementById("textFormWrap");
+      const firstFocus = document.getElementById("reachCall");
+
+      function openModal(){
+        modal.classList.add("open");
+        modal.setAttribute("aria-hidden", "false");
+        // reset text form each time
+        textWrap.classList.remove("open");
+        setTimeout(() => firstFocus?.focus(), 0);
+      }
+
+      function closeModal(){
+        modal.classList.remove("open");
+        modal.setAttribute("aria-hidden", "true");
+        openBtn?.focus();
+      }
+
+      openBtn?.addEventListener("click", openModal);
+
+      modal.addEventListener("click", (e) => {
+        if (e.target?.dataset?.close === "true") closeModal();
+      });
+
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && modal.classList.contains("open")) closeModal();
+      });
+
+      toggleText?.addEventListener("click", () => {
+        textWrap.classList.toggle("open");
+        if (textWrap.classList.contains("open")) {
+          const ta = textWrap.querySelector("textarea");
+          setTimeout(() => ta?.focus(), 0);
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

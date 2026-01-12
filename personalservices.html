@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>YOUR SON: Personal Services</title>
+
+  <!-- Nunito Sans Expanded -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans+Expanded:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Signature font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg-img: url("https://raw.githubusercontent.com/MRASServices/YourSonOfficialSite2/refs/heads/main/About%20Page%20Background.webp");
+      --nav-logo: url("https://raw.githubusercontent.com/MRASServices/YourSonOfficialSite2/refs/heads/main/NavBar%20Logo%20Cropped.webp");
+      --accent-box: #fff9e7;
+      --header-bg: #fff9e7;
+      --ink: #1e1e1e;
+      --muted: rgba(30,30,30,0.62);
+      --line: rgba(30,30,30,0.12);
+      --shell: rgba(255,247,230,0.0);
+      --font: "Nunito Sans Expanded", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      --brand-gold: #efbf04;
+    }
+
+    *{ box-sizing:border-box; margin:0; padding:0; }
+    html, body{ height:100%; }
+
+    body{
+      font-family: var(--font);
+      color: var(--ink);
+      background: #0b0b0b var(--bg-img) no-repeat center/cover fixed;
+    }
+
+    .page-shell{
+      width: 100%;
+      margin: 0;
+      background: var(--shell);
+      box-shadow: 0 18px 60px rgba(0,0,0,.28);
+    }
+
+    header{
+      padding: 28px 28px 15px;
+      border-bottom: 2px solid var(--line);
+      text-align:center;
+      background: var(--header-bg);
+      box-shadow: 0px 24px 17px -11px rgba(0,0,0,0.8);
+      margin-bottom:3em;
+      backdrop-filter: blur(6px);
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+    .brand-logo{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      width: min(560px, 88vw);
+      height: clamp(58px, 8.5vw, 92px);
+    }
+    .brand-logo img{
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display:block;
+    }
+
+    .sep-line{
+      width: 95%;
+      height: 1px;
+      margin: 18px auto 15px;
+      background: rgba(0,0,0,1);
+    }
+
+    .nav-row{
+      margin-top: 0;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap: 5px;
+      flex-wrap: wrap;
+      position: relative;
+    }
+
+    nav{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      gap: clamp(60px, 12.25vw, 155px);
+      flex-wrap: wrap;
+      padding-inline: 0;
+    }
+
+    nav a{
+      font-family: var(--font);
+      text-decoration:none;
+      color: rgba(30,30,30,.8);
+      font-size: 15px;
+      letter-spacing: .40em;
+      word-spacing: 0.55em;
+      text-transform: uppercase;
+      transition: opacity .2s ease, transform .2s ease;
+      font-weight: 500;
+      transform: scaleY(0.75);
+    }
+    nav a:hover{
+      opacity: 1.0;
+      color: var(--brand-gold);
+    }
+
+    .content{ padding: 1px; }
+
+    .two-col{
+      display: flex;
+      flex-direction: column-reverse;
+      gap: 0px;
+      align-items: center;
+      justify-content: center;
+      min-height: 560px;
+    }
+
+    .bio-box{
+      background: var(--accent-box);
+      border: 1px solid rgba(30,30,30,.10);
+      padding: clamp(12px, 0.5vw, 50px);
+      padding-left: 8.75em;
+      padding-right: 8.75em;
+      margin-top:3em;
+      padding-bottom: 4em;
+      box-shadow: 0px 24px 17px -11px rgba(0,0,0,0.9);
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      min-height: 100%;
+      align-items: center;
+      width: 92%;
+      margin-bottom: 6em;
+    }
+
+    .bio-top h1{
+      font-family: var(--font);
+      font-weight: 100;
+      font-size: clamp(40px, 4.25vw, 70px);
+      letter-spacing: .25em;
+      word-spacing: 1rem;
+      margin-bottom: 18px;
+      margin-top: 5px;
+      text-align: center;
+      transform: scaleY(0.75);
+    }
+
+    .bio-top .subtitle{
+      font-family: var(--font);
+      font-weight: 200;
+      font-size: 18px;
+      color: rgba(30,30,30,1);
+      letter-spacing: .09em;
+      text-align: center;
+      transform: scaleY(0.75);
+    }
+
+    .sep-line.bio{
+      margin: 10px auto 35px;
+      width: 100%;
+    }
+
+    .bio-top p{
+      font-family: var(--font);
+      font-size: 16px;
+      text-align: justify;
+      line-height: 1.5;
+      letter-spacing:0.15ch;
+      color: rgba(0,0,0,1);
+      margin: 26px auto 25px;
+      margin-bottom:2em;
+      max-width: 78ch;
+      font-weight: 300;
+    }
+
+    /* ✅ Inline buttons inside paragraph */
+    .inline-contact-btn{
+      appearance: none;
+      border: 0;
+      background: transparent;
+      color: var(--brand-gold);
+      font: inherit;
+      letter-spacing: inherit;
+      cursor: pointer;
+      padding: 0;
+      text-decoration: none;
+      text-underline-offset: 3px;
+      font-weight: 600;
+    }
+    .inline-contact-btn:hover{ opacity: .85; }
+    .inline-contact-btn:focus-visible{
+      outline: 3px solid rgba(239,191,4,.55);
+      outline-offset: 3px;
+      border-radius: 4px;
+    }
+
+    /* ✅ Search box */
+    .service-search-wrap{
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      margin-top: 35px;
+      margin-bottom: 50px;
+    }
+    .service-search{
+      width: min(500px, 100%);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 6px 6px;
+      border: 2px solid rgba(30,30,30,.55);
+      background: rgba(255,255,255,.55);
+      backdrop-filter: blur(6px);
+      box-shadow: 0 12px 24px rgba(0,0,0,.05);
+      border-radius: 5px;
+    }
+    .service-search input{
+      flex: 1;
+      border: 0;
+      outline: none;
+      background: transparent;
+      font-family: var(--font);
+      font-size: 14px;
+      letter-spacing: .06em;
+      color: rgba(30,30,30,.90);
+      padding: 8px 10px;
+    }
+    .service-search button{
+      border: 2px solid rgba(0,0,0,1);
+      background: var(--accent-box);
+      font-family: var(--font);
+      font-size: 13px;
+      letter-spacing: .12em;
+      font-weight: bold;
+      padding: 3px 5px;
+      cursor: pointer;
+      border-radius: 1px;
+      transition: transform .15s ease, opacity .15s ease;
+    }
+    .service-search button:hover{
+      transform: translateY(-1px);
+      opacity: .7;
+    }
+
+    .search-status{
+      width: 100%;
+      text-align: center;
+      font-family: var(--font);
+      font-size: 13px;
+      letter-spacing: .08em;
+      color: rgba(30,30,30,.78);
+      margin-top: 25px;
+    }
+
+    /* ✅ FLEX WRAP ROWS OF MINI BOXES */
+    .mini-box-grid{
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      gap: clamp(40px, 2.2vw, 80px);
+      margin-top: 2.2em;
+      align-items: stretch;
+    }
+
+    /* ✅ Each mini-box becomes a <details> accordion */
+    details.mini-box{
+      flex: 1 1 calc(50% - clamp(40px, 2.2vw, 80px));
+      background: var(--accent-box);
+      border: 2px solid rgba(30,30,30,1);
+      box-shadow: 0px 10px 13px -7px #000000, 0px 0px 12px 8px rgba(0,0,0,0.0);
+      min-width: 220px;
+      margin-bottom: 0em;
+      padding: 0;
+      border-radius: 0px;
+    }
+
+    /* ✅ Highlight match */
+    details.mini-box.match{
+      border: 3px solid rgba(239,191,4,1);
+      box-shadow: 0px 10px 13px -7px #000000,
+                  0px 0px 12px 8px rgba(0,0,0,0.0),
+                  0 0 0 4px rgba(239,191,4,.0);
+    }
+    details.mini-box.match .mini-summary{ background: rgba(239,191,4,0); }
+
+    /* remove default marker */
+    details.mini-box > summary{ list-style: none; }
+    details.mini-box > summary::-webkit-details-marker{ display:none; }
+
+    /* ✅ Clickable header */
+    .mini-summary{
+      cursor: pointer;
+      user-select: none;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      min-height: 130px;
+      padding: clamp(10px, 1.1vw, 16px);
+      position: relative;
+    }
+
+    /* chevron */
+    .mini-summary::after{
+      content: "▾";
+      position: absolute;
+      right: 14px;
+      top: 12px;
+      font-size: 18px;
+      opacity: 1;
+      transition: transform .25s ease;
+    }
+    details.mini-box[open] .mini-summary::after{
+      transform: rotate(180deg);
+    }
+
+    .mini-content{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+    }
+
+    details.mini-box h3{
+      font-family: var(--font);
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.5;
+      letter-spacing: .20em;
+      text-transform: uppercase;
+      transform: scaleY(0.85);
+      margin: 0em;
+      color: rgba(0,0,0,1);
+      text-align: center;
+    }
+
+    details.mini-box p{
+      font-family: var(--font);
+      font-size: 13px;
+      line-height: 0;
+      letter-spacing: 0.08ch;
+      color: rgba(30,30,30,1);
+      margin: 0;
+      text-align: center;
+    }
+
+    /* panel animation */
+    .mini-panel{
+      overflow: hidden;
+      max-height: 0;
+      opacity: 0;
+      padding: 0 clamp(10px, 1.1vw, 16px);
+      transition: max-height .35s ease, opacity .25s ease;
+    }
+    details.mini-box[open] .mini-panel{
+      max-height: 520px;
+      opacity: 1;
+      padding: 0 clamp(10px, 1.1vw, 16px) 16px;
+      margin-top:-2em;
+      border-top: 1px solid rgba(0,0,0,1);
+    }
+
+    .mini-panel ul{
+      margin-top: 1em;
+      padding: 0;
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      text-align: left;
+    }
+    .mini-panel li{
+      font-family: var(--font);
+      font-size: 12px;
+      letter-spacing: 0.2ch;
+      color: rgba(30,30,30,1);
+    }
+
+    details.mini-box[open] .mini-summary{
+      border-top: 1px solid rgba(0,0,0,1);
+      margin-bottom: 15px;
+    }
+
+    .bottom-logo{
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 12px 12px 12px;
+    }
+    .bottom-logo img{
+      width: 8%;
+      height: auto;
+      display: block;
+      filter: drop-shadow(0 10px 18px rgba(0,0,0,.65));
+    }
+
+    /* ✅ MODALS (Call + Write) */
+    .contact-modal{
+      position: fixed;
+      inset: 0;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 18px;
+      z-index: 9999;
+    }
+    .contact-modal.open{ display: flex; }
+
+    .contact-backdrop{
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,.62);
+      backdrop-filter: blur(4px);
+    }
+
+    .contact-dialog{
+      position: relative;
+      width: min(560px, 92vw);
+      background: var(--accent-box);
+      color: #111;
+      border: 2px solid rgba(0,0,0,.85);
+      box-shadow: 0 18px 60px rgba(0,0,0,.55);
+      padding: 22px 20px 18px;
+      z-index: 1;
+    }
+
+    .contact-dialog h2{
+      font-family: var(--font);
+      font-size: 18px;
+      letter-spacing: .20em;
+      text-transform: uppercase;
+      transform: scaleY(0.85);
+      margin-bottom: 14px;
+      text-align: center;
+      font-weight: 600;
+    }
+
+    .contact-actions{
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 10px;
+    }
+    .contact-actions.single{ grid-template-columns: 1fr; }
+
+    .contact-action{
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      background: #111;
+      color: var(--accent-box);
+      border: 2px solid #111;
+      padding: 12px 12px;
+      font-family: var(--font);
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform .15s ease, opacity .15s ease;
+    }
+    .contact-action:hover{
+      transform: translateY(-1px);
+      opacity: 1;
+      color: #efbf04;
+    }
+
+    .contact-action.secondary{
+      background: #111;
+      color: var(--accent-box);
+    }
+    .contact-action.secondary:hover{
+      transform: translateY(-1px);
+      opacity: 1;
+      color: #efbf04;
+    }
+
+    .contact-meta{
+      margin-top: 14px;
+      text-align: center;
+      font-size: 12px;
+      letter-spacing: .08em;
+      color: rgba(0,0,0,.70);
+    }
+
+    .contact-close{
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      border: 0;
+      background: transparent;
+      font-size: 22px;
+      line-height: 1;
+      cursor: pointer;
+      padding: 6px;
+      color: rgba(0,0,0,.75);
+    }
+    .contact-close:hover{ color: rgba(0,0,0,1); }
+
+    /* ✅ Option B “Text from desktop” form */
+    .text-form-wrap{
+      display: none;
+      margin-top: 14px;
+      border-top: 1px solid rgba(0,0,0,.25);
+      padding-top: 14px;
+    }
+    .text-form-wrap.open{ display: block; }
+
+    .text-form{
+      display: grid;
+      gap: 10px;
+    }
+    .text-form input,
+    .text-form textarea{
+      width: 100%;
+      border: 2px solid rgba(0,0,0,.75);
+      background: rgba(255,255,255,.7);
+      font-family: var(--font);
+      font-size: 14px;
+      padding: 10px 10px;
+      outline: none;
+    }
+    .text-form textarea{
+      min-height: 120px;
+      resize: vertical;
+    }
+    .text-form .form-row{
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    .text-send{
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid #111;
+      background: #111;
+      color: var(--accent-box);
+      padding: 12px 12px;
+      font-family: var(--font);
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      font-size: 13px;
+      font-weight: 800;
+      cursor: pointer;
+      transition: transform .15s ease, opacity .15s ease;
+    }
+    .text-send:hover{
+      transform: translateY(-1px);
+      color: var(--brand-gold);
+    }
+    .text-hint{
+      font-size: 12px;
+      letter-spacing: .06em;
+      color: rgba(0,0,0,.7);
+      text-align: center;
+      margin-top: 8px;
+    }
+
+    @media (max-width: 520px){
+      .contact-actions{ grid-template-columns: 1fr; }
+      .text-form .form-row{ grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 980px){
+      .nav-row{ justify-content:center; gap: 10px; }
+      .two-col{ min-height: auto; }
+      .sep-line{ width: 92%; }
+      nav{ gap: clamp(18px, 6vw, 44px); }
+
+      details.mini-box{
+        flex: 1 1 calc(50% - clamp(10px, 1.4vw, 18px));
+        min-width: 0;
+      }
+      .service-search{ width: min(560px, 100%); }
+      .bottom-logo img{ width: min(240px, 72vw); }
+    }
+
+    @media (max-width: 520px){
+      .page-shell{ width: 100%; margin-inline: auto; }
+      header{ padding: 22px 16px 12px; }
+      .content{ padding: 16px; }
+      nav{ gap: 14px; }
+      .sep-line{ margin: 14px auto 12px; }
+      .sep-line.bio{ margin: 6px auto 16px; }
+      .brand-logo{ height: 64px; }
+
+      details.mini-box{ flex: 1 1 100%; }
+
+      .service-search{ width: 100%; gap: 10px; }
+      .service-search button{ letter-spacing: .06em; padding: 8px 10px; }
+
+      .bottom-logo{ padding: 18px 12px 32px; }
+      .bottom-logo img{ width: min(220px, 78vw); }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page-shell">
+    <header>
+      <div class="brand">
+        <a class="brand-logo" href="#" aria-label="Your Son Home">
+          <img
+            src="https://raw.githubusercontent.com/MRASServices/YourSonOfficialSite2/refs/heads/main/NavBar%20Logo%20Cropped.webp"
+            alt="Your Son"
+          />
+        </a>
+      </div>
+
+      <div class="sep-line" aria-hidden="true"></div>
+
+      <div class="nav-row">
+        <nav aria-label="Primary">
+          <a href="https://yourson.ca/about">ABOUT</a>
+          <a href="https://yourson.ca/services">SERVICES</a>
+          <a href="https://yourson.ca/workshop">WORKSHOP</a>
+          <a href="https://yourson.ca/contact">CONTACT</a>
+          <a href="https://yourson.ca/home">HOME</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="content">
+      <section class="two-col">
+        <div class="bio-box">
+          <div class="bio-top">
+            <h1>PERSONAL SERVICES</h1>
+            <div class="subtitle">     </div>
+
+            <div class="sep-line bio" aria-hidden="true"></div>
+
+            <p class="about-paragraph">
+              Please keep in mind that we are constantly adding to the personal services list, below. This means that just because you don't yet see <em>exactly</em> what you're looking for, doesn't necessarily mean that you're completely up the creek without a paddle. Better yet, why not give <em>Your Son</em> a
+              <button type="button" class="inline-contact-btn" id="openCall">call</button>
+              or
+              <button type="button" class="inline-contact-btn" id="openWrite">write</button>
+              to us: we can figure it out together.
+            </p>
+
+            <!-- ✅ Centered search box -->
+            <div class="service-search-wrap" aria-label="Search services">
+              <div class="service-search">
+                <input id="serviceSearch" type="text" placeholder='Search services (e.g., "Gardening")' autocomplete="off" />
+                <button id="clearSearch" type="button">CLEAR</button>
+              </div>
+            </div>
+            <div id="searchStatus" class="search-status" aria-live="polite"></div>
+
+            <div class="mini-box-grid" aria-label="Services categories">
+              <details class="mini-box">
+                <summary class="mini-summary">
+                  <div class="mini-content">
+                    <h3>Transportation</h3>
+                    <p>Tap to view services</p>
+                  </div>
+                </summary>
+                <div class="mini-panel">
+                  <ul>
+                    <li>LIVERY SERVICE</li>
+                    <li>APPOINTMENT DROPOFF/PICK-UP</li>
+                    <li>WORKPLACE TRANSPORTATION</li>
+                    <li>SCHOOL DROPOFF/PICK-UP</li>
+                    <li>EXTRACURRICULAR TRANSPORTATION</li>
+                  </ul>
+                </div>
+              </details>
+
+              <details class="mini-box">
+                <summary class="mini-summary">
+                  <div class="mini-content">
+                    <h3>Errands</h3>
+                    <p>Tap to view services</p>
+                  </div>
+                </summary>
+                <div class="mini-panel">
+                  <ul>
+                    <li>GROCERY DELIVERY</li>
+                    <li>DRYCLEANING</li>
+                    <li>SHOPPING</li>
+                  </ul>
+                </div>
+              </details>
+
+              <details class="mini-box">
+                <summary class="mini-summary">
+                  <div class="mini-content">
+                    <h3>Pet Care</h3>
+                    <p></p>
+                  </div>
+                </summary>
+                <div class="mini-panel">
+                  <ul>
+                    <li>DOG WALKING</li>
+                    <li>PET SITTING</li>
+                    <li>PET APPOINTMENTS</li>
+                  </ul>
+                </div>
+              </details>
+
+              <details class="mini-box">
+                <summary class="mini-summary">
+                  <div class="mini-content">
+                    <h3>ORGANIZATION</h3>
+                    <p></p>
+                  </div>
+                </summary>
+                <div class="mini-panel">
+                  <ul>
+                    <li>HOME CLEANING</li>
+                    <li>GARAGE CLEAN/ORGANIZE</li>
+                    <li>JUNK REMOVAL</li>
+                    <li>ONLINE ITEM SALES</li>
+                    <li>CLOSET REORGANIZING</li>
+                    <li>ROOM(S) ORGANIZATION</li>
+                  </ul>
+                </div>
+              </details>
+
+              <details class="mini-box">
+                <summary class="mini-summary">
+                  <div class="mini-content">
+                    <h3>Inside The House</h3>
+                    <p></p>
+                  </div>
+                </summary>
+                <div class="mini-panel">
+                  <ul>
+                    <li>FURNITURE ASSEMBLY</li>
+                    <li>DOOR HANGING</li>
+                    <li>FRAMING &amp; DRYWALLING</li>
+                    <li>TRIM WORK</li>
+                    <li>TV MOUNTING</li>
+                    <li>PAINTING</li>
+                    <li>LIGHT FIXTURE REPLACEMENT</li>
+                    <li>GROUT CLEANING</li>
+                    <li>TUB RESURFACING</li>
+                    <li>HOUSE SITTING</li>
+                  </ul>
+                </div>
+              </details>
+
+              <details class="mini-box">
+                <summary class="mini-summary">
+                  <div class="mini-content">
+                    <h3>Outside The House</h3>
+                    <p></p>
+                  </div>
+                </summary>
+                <div class="mini-panel">
+                  <ul>
+                    <li>GARDENING</li>
+                    <li>LANDSCAPING</li>
+                    <li>TREE/HEDGE TRIMMING</li>
+                    <li>DECK BUILDING/MAINTENANCE</li>
+                  </ul>
+                </div>
+              </details>
+            </div><!-- end mini-box-grid -->
+
+          </div>
+        </div>
+      </section>
+
+      <div class="bottom-logo" aria-label="Your Son logo">
+        <img
+          src="https://raw.githubusercontent.com/MRASServices/YourSonOfficialSite2/refs/heads/main/YSON%20Logo%20Small.webp"
+          alt="Your Son logo"
+        />
+      </div>
+    </main>
+  </div>
+
+  <!-- ✅ CALL modal -->
+  <div class="contact-modal" id="callModal" aria-hidden="true">
+    <div class="contact-backdrop" data-close="true"></div>
+
+    <div class="contact-dialog" role="dialog" aria-modal="true" aria-labelledby="callTitle">
+      <button class="contact-close" type="button" aria-label="Close" data-close="true">×</button>
+      <h2 id="callTitle">Call Your Son</h2>
+
+      <div class="contact-actions single">
+        <!-- ✅ Your real number -->
+        <a class="contact-action" id="callNumberLink" href="tel:+12892318387">Call</a>
+      </div>
+
+      <div class="contact-meta">Don't panic - this will open your phone app.</div>
+    </div>
+  </div>
+
+  <!-- ✅ WRITE modal -->
+  <div class="contact-modal" id="writeModal" aria-hidden="true">
+    <div class="contact-backdrop" data-close="true"></div>
+
+    <div class="contact-dialog" role="dialog" aria-modal="true" aria-labelledby="writeTitle">
+      <button class="contact-close" type="button" aria-label="Close" data-close="true">×</button>
+      <h2 id="writeTitle">Write Your Son</h2>
+
+      <div class="contact-actions">
+        <!-- ✅ Option B trigger: opens in-modal form that works on desktop -->
+        <button class="contact-action" id="openTextForm" type="button">Text</button>
+
+        <!-- ✅ Email link -->
+        <a class="contact-action secondary" id="emailLink" href="mailto:connectwith@yourson.ca">Email</a>
+      </div>
+
+      <!-- ✅ Option B: Website form -> FormSubmit -> email-to-SMS gateway (works on desktop) -->
+      <div class="text-form-wrap" id="textFormWrap" aria-label="Send a text from this website">
+        <form
+          class="text-form"
+          method="POST"
+          target="_blank"
+          action="https://formsubmit.co/2892318387@msg.koodomobile.com"
+        >
+          <!-- Anti-spam basics -->
+          <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+          <input type="hidden" name="_subject" value="New text from YourSon.ca (Personal Services)">
+          <input type="hidden" name="_template" value="box">
+          <!-- If you WANT captcha, set this to true (recommended) -->
+          <input type="hidden" name="_captcha" value="true">
+
+          <div class="form-row">
+            <input name="name" type="text" placeholder="Your name" />
+            <input name="reply_to" type="email" placeholder="Your email" />
+          </div>
+
+          <textarea name="message" placeholder="Please include your email/phone, or we wont be able to get back to you.
+          
+That would make us sad - surely you don't want to make Your Son sad!" required></textarea>
+
+          <button class="text-send" type="submit">Send Text</button>
+
+          <div class="text-hint">
+          </div>
+        </form>
+      </div>
+
+      <div class="contact-meta">Variety is the spice of life. So please select your preference.</div>
+    </div>
+  </div>
+
+  <script>
+    // ✅ Close any other open box when opening a new one (click behavior)
+    document.addEventListener("click", (e) => {
+      const summary = e.target.closest(".mini-summary");
+      if (!summary) return;
+
+      const current = summary.closest("details.mini-box");
+      document.querySelectorAll("details.mini-box[open]").forEach((box) => {
+        if (box !== current) box.removeAttribute("open");
+      });
+    });
+
+    // ✅ Search -> highlight matching category + open/scroll to first match
+    (function(){
+      const input = document.getElementById("serviceSearch");
+      const clearBtn = document.getElementById("clearSearch");
+      const status = document.getElementById("searchStatus");
+      const boxes = Array.from(document.querySelectorAll("details.mini-box"));
+
+      const norm = (s) =>
+        (s || "")
+          .toLowerCase()
+          .replace(/&/g, "and")
+          .replace(/[^a-z0-9\s\/-]/g, "")
+          .replace(/\s+/g, " ")
+          .trim();
+
+      boxes.forEach((box) => {
+        const title = box.querySelector(".mini-summary h3")?.textContent || "";
+        const items = Array.from(box.querySelectorAll(".mini-panel li"))
+          .map(li => li.textContent || "")
+          .join(" ");
+        box.dataset.search = norm(title + " " + items);
+      });
+
+      function clearMatches(){
+        boxes.forEach(b => b.classList.remove("match"));
+        status.textContent = "";
+      }
+
+      function runSearch(){
+        const raw = input.value;
+        const q = norm(raw);
+        clearMatches();
+        if (!q) return;
+
+        const tokens = q.split(" ").filter(Boolean);
+        const matches = boxes.filter(b => {
+          const hay = b.dataset.search || "";
+          return tokens.every(t => hay.includes(t));
+        });
+
+        if (matches.length === 0){
+          status.textContent = `No matches for “${raw}”.`;
+          return;
+        }
+
+        status.textContent = `${matches.length} match${matches.length === 1 ? "" : "es"} for “${raw}”.`;
+        matches.forEach(b => b.classList.add("match"));
+
+        const first = matches[0];
+        boxes.forEach(b => { if (b !== first) b.removeAttribute("open"); });
+        first.setAttribute("open", "");
+        first.scrollIntoView({ behavior: "smooth", block: "center" });
+      }
+
+      input.addEventListener("input", runSearch);
+      clearBtn.addEventListener("click", () => { input.value = ""; clearMatches(); });
+
+      input.addEventListener("keydown", (e) => {
+        if (e.key === "Escape"){
+          input.value = "";
+          clearMatches();
+          input.blur();
+        }
+      });
+    })();
+
+    // ✅ Call + Write modals
+    (function(){
+      const openCallBtn  = document.getElementById("openCall");
+      const openWriteBtn = document.getElementById("openWrite");
+
+      const callModal  = document.getElementById("callModal");
+      const writeModal = document.getElementById("writeModal");
+
+      const callFocus  = document.getElementById("callNumberLink");
+      const writeFocus = document.getElementById("openTextForm");
+
+      function openModal(modal, focusEl){
+        modal.classList.add("open");
+        modal.setAttribute("aria-hidden", "false");
+        setTimeout(() => focusEl?.focus(), 0);
+      }
+
+      function closeModal(modal, returnFocusEl){
+        modal.classList.remove("open");
+        modal.setAttribute("aria-hidden", "true");
+        returnFocusEl?.focus();
+      }
+
+      function wireModal(modal, returnFocusEl){
+        modal.addEventListener("click", (e) => {
+          if (e.target?.dataset?.close === "true") closeModal(modal, returnFocusEl);
+        });
+      }
+
+      wireModal(callModal, openCallBtn);
+      wireModal(writeModal, openWriteBtn);
+
+      openCallBtn?.addEventListener("click", () => openModal(callModal, callFocus));
+      openWriteBtn?.addEventListener("click", () => openModal(writeModal, writeFocus));
+
+      document.addEventListener("keydown", (e) => {
+        if (e.key !== "Escape") return;
+
+        if (callModal.classList.contains("open")) closeModal(callModal, openCallBtn);
+        if (writeModal.classList.contains("open")) closeModal(writeModal, openWriteBtn);
+      });
+    })();
+
+    // ✅ Option B: show/hide text form inside Write modal
+    (function(){
+      const toggleBtn = document.getElementById("openTextForm");
+      const wrap = document.getElementById("textFormWrap");
+      const textarea = wrap?.querySelector("textarea");
+
+      if (!toggleBtn || !wrap) return;
+
+      toggleBtn.addEventListener("click", () => {
+        wrap.classList.toggle("open");
+        if (wrap.classList.contains("open")){
+          setTimeout(() => textarea?.focus(), 0);
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
