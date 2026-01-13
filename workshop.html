@@ -335,7 +335,361 @@
         width: min(220px, 78vw);
       }
     }
-  </style>
+  
+/* === YS MOBILE UI v1 (drawer + search + contact) === */
+.ys-mobile-btn{
+  display:none;
+  appearance:none;
+  border: 1px solid rgba(0,0,0,.25);
+  background: rgba(255,255,255,.75);
+  color: rgba(0,0,0,.9);
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  line-height: 1;
+  box-shadow: 0 10px 24px rgba(0,0,0,.18);
+}
+.ys-mobile-btn:focus-visible{
+  outline: 3px solid rgba(239,191,4,.55);
+  outline-offset: 3px;
+}
+
+.ys-drawer-backdrop{
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.55);
+  backdrop-filter: blur(4px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .2s ease;
+  z-index: 9996;
+}
+.ys-drawer{
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: min(340px, 86vw);
+  background: rgba(0,0,0,.92);
+  border-right: 1px solid rgba(255,255,255,.18);
+  transform: translateX(-105%);
+  transition: transform .22s ease;
+  z-index: 9997;
+  padding: 18px 16px 14px;
+  display:flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.ys-drawer .ys-drawer-top{
+  display:flex;
+  align-items:center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 6px;
+}
+.ys-drawer .ys-drawer-top img{
+  width: 120px;
+  height: auto;
+  display:block;
+}
+.ys-drawer .ys-drawer-close{
+  appearance:none;
+  border: 1px solid rgba(255,255,255,.22);
+  background: rgba(0,0,0,.35);
+  color: rgba(255,255,255,.9);
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 22px;
+  line-height: 1;
+}
+.ys-drawer a{
+  text-decoration: none;
+  color: rgba(255,255,255,.92);
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  font-size: 13px;
+  padding: 14px 10px;
+  border: 1px solid rgba(255,255,255,.12);
+  background: rgba(0,0,0,.25);
+}
+.ys-drawer a:hover{
+  border-color: rgba(239,191,4,.55);
+  color: rgba(239,191,4,1);
+}
+
+body.ys-drawer-open .ys-drawer-backdrop{
+  opacity: 1;
+  pointer-events: auto;
+}
+body.ys-drawer-open .ys-drawer{
+  transform: translateX(0);
+}
+
+/* Search overlay */
+.ys-search-overlay{
+  position: fixed;
+  inset: 0;
+  display:none;
+  z-index: 9998;
+}
+body.ys-search-open .ys-search-overlay{ display:block; }
+.ys-search-overlay .ys-search-backdrop{
+  position:absolute;
+  inset:0;
+  background: rgba(0,0,0,.55);
+  backdrop-filter: blur(4px);
+}
+.ys-search-overlay .ys-search-panel{
+  position: relative;
+  width: min(720px, 94vw);
+  margin: 10vh auto 0;
+  background: rgba(255,255,255,.92);
+  border: 1px solid rgba(0,0,0,.22);
+  box-shadow: 0 18px 60px rgba(0,0,0,.35);
+  padding: 18px 16px 14px;
+}
+.ys-search-overlay .ys-search-head{
+  display:flex;
+  align-items:center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+.ys-search-overlay .ys-search-head h3{
+  font-size: 14px;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  margin: 0;
+  color: rgba(0,0,0,.85);
+  font-weight: 700;
+}
+.ys-search-overlay .ys-search-close{
+  appearance:none;
+  border: 1px solid rgba(0,0,0,.22);
+  background: rgba(255,255,255,.7);
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 22px;
+}
+.ys-search-overlay input{
+  width: 100%;
+  border: 2px solid rgba(0,0,0,.75);
+  background: rgba(255,255,255,.85);
+  font-family: var(--font, "Nunito Sans Expanded", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif);
+  font-size: 14px;
+  letter-spacing: .06em;
+  padding: 12px 12px;
+  outline: none;
+}
+.ys-search-overlay .ys-search-links{
+  display:flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+.ys-search-overlay .ys-search-links a{
+  text-decoration:none;
+  border: 1px solid rgba(0,0,0,.18);
+  background: rgba(255,255,255,.7);
+  color: rgba(0,0,0,.82);
+  padding: 8px 10px;
+  font-size: 12px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+.ys-search-overlay .ys-search-hint{
+  margin-top: 10px;
+  font-size: 12px;
+  letter-spacing: .06em;
+  color: rgba(0,0,0,.65);
+}
+
+/* Contact modal (Option B text form) */
+.ys-contact-modal{
+  position: fixed;
+  inset: 0;
+  display:none;
+  z-index: 9999;
+}
+body.ys-contact-open .ys-contact-modal{ display:flex; align-items:center; justify-content:center; padding: 18px; }
+.ys-contact-backdrop{
+  position:absolute;
+  inset:0;
+  background: rgba(0,0,0,.6);
+  backdrop-filter: blur(4px);
+}
+.ys-contact-dialog{
+  position: relative;
+  width: min(720px, 94vw);
+  background: rgba(0,0,0,.94);
+  border: 2px solid rgba(255,255,255,.25);
+  color: rgba(255,255,255,.94);
+  padding: 20px 18px 16px;
+  box-shadow: 0 18px 60px rgba(0,0,0,.55);
+  z-index: 1;
+}
+.ys-contact-dialog h2{
+  margin: 0 0 14px;
+  text-align:center;
+  font-size: 14px;
+  letter-spacing: .26em;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+.ys-contact-close{
+  position:absolute;
+  top: 10px;
+  right: 10px;
+  appearance:none;
+  border: 1px solid rgba(255,255,255,.22);
+  background: rgba(0,0,0,.35);
+  color: rgba(255,255,255,.9);
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 22px;
+}
+.ys-contact-actions{
+  display:grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px;
+}
+.ys-contact-actions a,
+.ys-contact-actions button{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  text-decoration:none;
+  appearance:none;
+  border: 2px solid rgba(255,255,255,.25);
+  background: rgba(0,0,0,.35);
+  color: rgba(255,255,255,.94);
+  padding: 12px 10px;
+  font-size: 12px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.ys-contact-actions a:hover,
+.ys-contact-actions button:hover{
+  border-color: rgba(239,191,4,.65);
+  color: rgba(239,191,4,1);
+}
+.ys-text-wrap{
+  display:none;
+  margin-top: 14px;
+  border-top: 1px solid rgba(255,255,255,.18);
+  padding-top: 14px;
+}
+.ys-text-wrap.open{ display:block; }
+.ys-text-form{
+  display:grid;
+  gap: 10px;
+}
+.ys-text-form .ys-row{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+.ys-text-form input,
+.ys-text-form textarea{
+  width:100%;
+  border: 2px solid rgba(255,255,255,.25);
+  background: rgba(0,0,0,.25);
+  color: rgba(255,255,255,.92);
+  font-family: var(--font, "Nunito Sans Expanded", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif);
+  font-size: 14px;
+  padding: 10px 10px;
+  outline: none;
+}
+.ys-text-form textarea{ min-height: 120px; resize: vertical; }
+.ys-text-send{
+  appearance:none;
+  border: 2px solid rgba(255,255,255,.25);
+  background: rgba(0,0,0,.35);
+  color: rgba(255,255,255,.94);
+  padding: 12px 10px;
+  font-size: 12px;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.ys-text-send:hover{
+  border-color: rgba(239,191,4,.65);
+  color: rgba(239,191,4,1);
+}
+.ys-contact-note{
+  margin-top: 12px;
+  text-align:center;
+  font-size: 12px;
+  letter-spacing: .06em;
+  color: rgba(255,255,255,.72);
+}
+
+/* Mobile activation: show buttons, hide wide nav row, keep logo centered */
+@media (max-width: 768px){
+  header{ position: relative; }
+  .ys-mobile-btn{ display:inline-flex; }
+  .ys-mobile-btn.ys-menu{ position:absolute; left: 12px; top: 16px; }
+  .ys-mobile-btn.ys-search{ position:absolute; right: 58px; top: 16px; }
+  .ys-mobile-btn.ys-contact{ position:absolute; right: 12px; top: 16px; }
+
+  .nav-row{ display:none !important; }
+  .sep-line{ display:none !important; }
+
+  .brand-logo{ width: min(320px, 62vw) !important; height: 52px !important; }
+  header{ padding: 18px 16px 14px !important; }
+}
+
+@media (max-width: 520px){
+  .ys-contact-actions{ grid-template-columns: 1fr; }
+  .ys-text-form .ys-row{ grid-template-columns: 1fr; }
+}
+
+
+/* YS topbar for pages without <header>
+
+      <button class="ys-mobile-btn ys-menu" type="button" aria-label="Open menu">☰</button>
+      <button class="ys-mobile-btn ys-search" type="button" aria-label="Search">⌕</button>
+      <button class="ys-mobile-btn ys-contact" type="button" aria-label="Contact">✉</button>
+ */
+.ys-topbar{ display:none; }
+.ys-topbar-logo img{ width: 110px; height:auto; display:block; }
+@media (max-width: 768px){
+  .ys-topbar{
+    display:flex;
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    z-index: 9995;
+    align-items:center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 10px 10px;
+    background: rgba(0,0,0,.35);
+    backdrop-filter: blur(6px);
+    border: 1px solid rgba(255,255,255,.16);
+    border-radius: 14px;
+  }
+  .ys-topbar .ys-mobile-btn{
+    display:inline-flex;
+    border-color: rgba(255,255,255,.18);
+    background: rgba(0,0,0,.35);
+    color: rgba(255,255,255,.92);
+  }
+}
+
+</style>
 </head>
 
 <body>
